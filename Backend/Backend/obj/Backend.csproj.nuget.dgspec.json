@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\useradmin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\winne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\useradmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\winne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,24 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -64,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
