@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\winne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\winne\\Documents\\myProjectMain\\Backend\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\useradmin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\useradmin\\Documents\\GitHub\\myProject\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\winne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\useradmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

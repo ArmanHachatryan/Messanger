@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace postgreAdding.Controllers
+namespace Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -12,7 +12,7 @@ namespace postgreAdding.Controllers
     {
         private readonly IMyDbContext _context;
 
-        public HomeController(MyDbContext context)
+        public HomeController(IMyDbContext context)
         {
             _context = context;
         }

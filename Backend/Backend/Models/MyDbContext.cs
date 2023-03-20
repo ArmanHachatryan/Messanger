@@ -15,7 +15,7 @@ namespace Backend.Models
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
             //Database.EnsureDeleted();
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
