@@ -4,7 +4,7 @@ namespace Backend.Models
 {
     public interface IMyDbContext
     {
-        DbSet<MyModel> MyModels { get; set; }
+        DbSet<MyModel> AppData { get; set; }
 
         void Save();
     }

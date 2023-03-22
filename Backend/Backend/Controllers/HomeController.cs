@@ -26,7 +26,7 @@ namespace Backend.Controllers
                 Name = "New Name with Random Guid",
 
             };
-            _context.MyModels.Add(model);
+            _context.AppData.Add(model);
             _context.Save();
             return Ok("Good");
         }

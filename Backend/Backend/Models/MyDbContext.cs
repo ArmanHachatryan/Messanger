@@ -10,12 +10,12 @@ namespace Backend.Models
 {
     public class MyDbContext : DbContext, IMyDbContext
     {
-        public DbSet<MyModel> MyModels { get; set; }
+        public DbSet<MyModel> AppData { get; set; }
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
