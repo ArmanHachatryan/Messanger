@@ -21,6 +21,7 @@ namespace Backend.Controllers
         [HttpGet]
         public IActionResult GetData()
         {
+
             AppData model = new AppData()
             {
                 Id = Guid.NewGuid(),
