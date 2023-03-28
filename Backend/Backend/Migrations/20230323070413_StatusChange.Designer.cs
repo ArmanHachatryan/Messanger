@@ -9,9 +9,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Backend.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
-    [Migration("20230322063957_Initial-F")]
-    partial class InitialF
+    [DbContext(typeof(PostgreDbContext))]
+    [Migration("20230323070413_StatusChange")]
+    partial class StatusChange
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Backend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Backend.Models.MyModel", b =>
+            modelBuilder.Entity("Backend.Models.Tables.AppData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,15 +30,36 @@ namespace Backend.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Text")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppData");
+                    b.ToTable("Data");
+                });
+
+            modelBuilder.Entity("Backend.Models.Tables.Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StatusList");
                 });
 #pragma warning restore 612, 618
         }

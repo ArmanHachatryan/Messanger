@@ -9,9 +9,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Backend.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
-    [Migration("20230322063527_Initial-text")]
-    partial class Initialtext
+    [DbContext(typeof(PostgreDbContext))]
+    [Migration("20230323065125_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,13 +21,19 @@ namespace Backend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Backend.Models.MyModel", b =>
+            modelBuilder.Entity("Backend.Models.Tables.AppData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Sender")
                         .HasColumnType("text");
 
                     b.Property<string>("Text")
@@ -35,7 +41,22 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyData");
+                    b.ToTable("Data");
+                });
+
+            modelBuilder.Entity("Backend.Models.Tables.Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StatusList");
                 });
 #pragma warning restore 612, 618
         }

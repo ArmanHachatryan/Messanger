@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Backend.Models.Tables;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +11,9 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class HomeController : ControllerBase
     {
-        private readonly IMyDbContext _context;
+        private readonly IPostgreDbContext _context;
 
-        public HomeController(IMyDbContext context)
+        public HomeController(IPostgreDbContext context)
         {
             _context = context;
         }
@@ -20,18 +21,21 @@ namespace Backend.Controllers
         [HttpGet]
         public IActionResult GetData()
         {
-            MyModel model = new MyModel()
+
+            AppData model = new AppData()
             {
                 Id = Guid.NewGuid(),
-                Name = "New Name with Random Guid",
+                Text = "Test",
+                Status = 1,
+                PhoneNumber = "+77777777",
+                DateTime = DateTime.Now,
+                Sender = "Alex"
 
             };
-            _context.AppData.Add(model);
+            _context.Data.Add(model);
             _context.Save();
             return Ok("Good");
         }
-
-
 
     }
 }
