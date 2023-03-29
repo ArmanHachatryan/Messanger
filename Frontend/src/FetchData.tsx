@@ -10,7 +10,7 @@ interface MessageData{
 
 }
 
-export default function App() {
+export default function FetchData() {
   const [data, setData] = useState<MessageData[]>([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <h2>History</h2>
+      <h2>FetchingData GET-Query</h2>
       {data.map((post)=> {
         const {id, text, phoneNumber, dateTime, status} = post;
 

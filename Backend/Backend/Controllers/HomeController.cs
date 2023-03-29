@@ -23,34 +23,28 @@ namespace Backend.Controllers
         [HttpGet]
         public IActionResult GetData()
         {
-            //AppData model = new AppData()
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Text = "Test",
-            //    Status = 1,
-            //    PhoneNumber = "+77777777",
-            //    DateTime = DateTime.Now,
-            //    Sender = "Alex"
 
-            //};
             return Json(_context.Data.ToList());
         }
 
         [HttpPost]
-        public IActionResult PostData() 
+        public IActionResult PostData()
         {
-            //AppData model = new AppData()
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Text = "Test",
-            //    Status = 1,
-            //    PhoneNumber = "+77777777",
-            //    DateTime = DateTime.Now,
-            //    Sender = "Alex"
+            string text = Request.Form["textMessage"];
+            string name = Request.Form["userName"];
 
-            //};
-            //_context.Data.Add(model);
-            //_context.Save();
+            AppData model = new AppData()
+            {
+                Id = Guid.NewGuid(),
+                Text = text,
+                Status = 3,
+                PhoneNumber = "+77777777",
+                DateTime = DateTime.Now,
+                Sender = name,
+            };
+
+            _context.Data.Add(model);
+            _context.Save();
             return Ok("good");
         }
         
