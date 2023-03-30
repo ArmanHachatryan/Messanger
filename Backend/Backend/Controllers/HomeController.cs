@@ -14,6 +14,8 @@ namespace Backend.Controllers
     public class HomeController : Controller
     {
         private readonly IPostgreDbContext _context;
+        //Убрать
+        private Random _random;
 
         public HomeController(IPostgreDbContext context)
         {
@@ -28,24 +30,25 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostData()
+        public IActionResult PostData([FromBody] AppData model)
         {
-            string text = Request.Form["textMessage"];
-            string name = Request.Form["userName"];
 
-            AppData model = new AppData()
+            //уБРАТЬ В СЕРВИС
+            _random = new Random();
+
+            AppData data = new AppData()
             {
                 Id = Guid.NewGuid(),
-                Text = text,
-                Status = 3,
-                PhoneNumber = "+77777777",
+                Text = model.Text,
+                Status = _random.Next(1, 4),
+                PhoneNumber = model.PhoneNumber,
                 DateTime = DateTime.Now,
-                Sender = name,
+                Sender = model.Sender,
             };
 
-            _context.Data.Add(model);
+            _context.Data.Add(data);
             _context.Save();
-            return Ok("good");
+            return Ok();
         }
         
 

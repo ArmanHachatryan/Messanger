@@ -3,17 +3,17 @@ import React from 'react'
 import { useState} from "react"
 
 const defaultData = {
-    textMessage: "",
+    text: "",
     phoneNumber: "",
-    userName: "",
+    sender: "",
 }
 export default function PostForm() {
     const [formData, setFormData] = useState(defaultData);
 
-    const {textMessage, phoneNumber, userName} = formData
+    const {text, phoneNumber, sender} = formData
 
     
-    const OnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const OnChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         setFormData((prevState) => ({
             ...prevState,
             [e.target.id]: e.target.value,
@@ -30,7 +30,7 @@ export default function PostForm() {
     
         }
 
-        setFormData(defaultData)
+        setFormData(defaultData);
     }
 
 
@@ -38,18 +38,20 @@ export default function PostForm() {
   return (
     
     <div>
-        <h2>PostForm</h2>
+        <h2>Data Fetching - Set Data</h2>
+
         <p>Send a letter</p>
 
         <form onSubmit={OnSubmit}>
             <label htmlFor='name'>Your Name</label>
-            <input type="text" id="userName" value={userName} onChange={OnChange}/>
+            <input type="text" id="sender" required value={sender} onChange={OnChange}/>
 
-            <label htmlFor='textMessage'>Text</label>
-            <input type="text" id="textMessage" value={textMessage} onChange={OnChange}/>
+            <label htmlFor='text'>Text</label>
+            <textarea id="text" required value={text}  onChange={OnChange}/>
+            
 
             <label htmlFor='phoneNumber'>Number</label>
-            <input type="text" id="phoneNumber" value={phoneNumber} onChange={OnChange}/>
+            <input type="text" id="phoneNumber" required value={phoneNumber} onChange={OnChange}/>
 
             <button type="submit">Send message</button>
         </form>    
