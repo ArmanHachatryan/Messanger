@@ -4,12 +4,13 @@ import FetchData from './FetchData';
 import PostForm from './PostForm';
 
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <PostForm/>
     <FetchData/>
+    <PostForm/>
   </React.StrictMode>
 );

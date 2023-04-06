@@ -11,19 +11,19 @@ interface MessageData{
   sender : string,
 
 }
-
 export default function FetchData() {
   const [data, setData] = useState<MessageData[]>([]);
 
+  const fetchPosts = async () => {
+    const response = await axios.get("https://localhost:44352/api/Home");
+    console.log("effectUsed")
+    setData(response.data);
+};
+
   useEffect(() => {
-    const fetchPosts = async () => {
-        const response = await axios.get("https://localhost:44352/api/Home");
-
-        setData(response.data);
-    };
-
     fetchPosts();
   }, []);
+
 
 
   return (
@@ -44,6 +44,7 @@ export default function FetchData() {
           </article>
         )
       })}
+
   </>
   )
 
