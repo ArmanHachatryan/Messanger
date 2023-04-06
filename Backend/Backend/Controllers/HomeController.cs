@@ -1,5 +1,6 @@
 ﻿using Backend.Models;
 using Backend.Models.Tables;
+using Backend.Services.IAppServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,41 +14,25 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class HomeController : Controller
     {
-        private readonly IPostgreDbContext _context;
-        //Убрать
-        private Random _random;
-
-        public HomeController(IPostgreDbContext context)
+        private readonly IPostgreDbContext _storage;
+        private readonly ISendLetterService _sendLetter;
+        public HomeController(IPostgreDbContext storage, ISendLetterService sendLetter)
         {
-            _context = context;
+            _storage = storage;
+            _sendLetter = sendLetter;
         }
 
         [HttpGet]
         public IActionResult GetData()
         {
 
-            return Json(_context.Data.ToList());
+            return Json(_storage.Data.ToList());
         }
 
         [HttpPost]
         public IActionResult PostData([FromBody] AppData model)
         {
-
-            //уБРАТЬ В СЕРВИС
-            _random = new Random();
-
-            AppData data = new AppData()
-            {
-                Id = Guid.NewGuid(),
-                Text = model.Text,
-                Status = _random.Next(1, 4),
-                PhoneNumber = model.PhoneNumber,
-                DateTime = DateTime.Now,
-                Sender = model.Sender,
-            };
-
-            _context.Data.Add(data);
-            _context.Save();
+            _sendLetter.SendLetter(model);
             return Ok();
         }
         

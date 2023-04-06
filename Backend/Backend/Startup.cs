@@ -6,7 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Backend.Models;
-
+using Backend.Services.IAppServices;
+using Backend.Services.AppService;
+using Backend.Services.AppServices;
 
 namespace Backend
 {
@@ -29,6 +31,8 @@ namespace Backend
             });
             //AddingPostgreSqlDatabase
             services.AddDbContext<IPostgreDbContext, PostgreDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<ISendLetterService, SendLetterService>();
+            services.AddTransient<IRandomService, RandomService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
