@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import FetchData from './FetchData';
-import PostForm from './PostForm';
-
+import App from './ReactQuery/App';
 
 
 const root = ReactDOM.createRoot(
@@ -10,7 +8,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <FetchData/>
-    <PostForm/>
+    <App/>
   </React.StrictMode>
 );
