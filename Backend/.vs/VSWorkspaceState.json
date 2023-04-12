@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\Services",
+    "\\Backend\\Services\\AppServices"
+  ],
+  "SelectedNode": "\\Backend\\Services\\AppServices\\RandomService.cs",
+  "PreviewInSolutionExplorer": false
+}
