@@ -29,6 +29,13 @@ namespace Backend.Controllers
             return Json(_storage.Data.ToList());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetMessage(Guid id) 
+        {
+            var message = _storage.Data.FirstOrDefault(x => x.Id == id);
+            return Json(message);
+        }
+
         [HttpPost]
         public IActionResult PostData([FromBody] AppData model)
         {

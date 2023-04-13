@@ -1,7 +1,7 @@
 import React from 'react'
 import useMessages from '../query-hooks/useMessages';
 
-export default function Messagess() {
+export default function Messagess({setSelectedMessage}) {
     const messagess = useMessages();
 
     console.log(messagess);
@@ -15,7 +15,7 @@ export default function Messagess() {
     {messagess.isSuccess &&
     <ul>
         {messagess.data.map(messages =>
-        <li key={messages.id} >{messages.id},{messages.sender}</li>
+        <li key={messages.id} onClick={() => setSelectedMessage(messages.id)} >{messages.id},{messages.sender}</li>
             )}    
     </ul>
     }
