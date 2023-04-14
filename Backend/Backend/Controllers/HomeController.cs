@@ -29,6 +29,12 @@ namespace Backend.Controllers
             return Json(_storage.Data.ToList());
         }
 
+        [HttpGet("status")] 
+        public IActionResult GetStatus()
+        {
+            return Json(_storage.StatusList.ToList());
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetMessage(Guid id) 
         {

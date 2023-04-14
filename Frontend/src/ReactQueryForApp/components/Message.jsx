@@ -6,10 +6,12 @@ export default function Message({selectedMessage}) {
 
   return (
   <>
-    {message.isLoading &&  <p>Loading user...</p>}
+    {message.isLoading &&  <p>Loading message...</p>}
+
+    {message.isError && <p>Couldn't fetch message</p>}
 
     {message.isSuccess && (
-        <p>{`${message.data.text} - ${message.data.id}`}</p>
+        <p>{`${message.data.text} - ${message.data.phoneNumber} - ${message.data.dateTime}`}</p>
     )}
   </>
   ) 
