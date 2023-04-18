@@ -3,15 +3,17 @@ using System;
 using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Backend.Migrations
 {
     [DbContext(typeof(PostgreDbContext))]
-    partial class PostgreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230418110939_Initial2")]
+    partial class Initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +30,6 @@ namespace Backend.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("MesssageStatus")
-                        .HasColumnType("text");
-
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
@@ -40,7 +39,12 @@ namespace Backend.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("text");
 
+                    b.Property<int?>("messageStatusId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("messageStatusId");
 
                     b.ToTable("Data");
                 });
@@ -75,6 +79,15 @@ namespace Backend.Migrations
                             Id = 3,
                             Text = "Error"
                         });
+                });
+
+            modelBuilder.Entity("Backend.Models.Tables.AppData", b =>
+                {
+                    b.HasOne("Backend.Models.Tables.Status", "messageStatus")
+                        .WithMany()
+                        .HasForeignKey("messageStatusId");
+
+                    b.Navigation("messageStatus");
                 });
 #pragma warning restore 612, 618
         }

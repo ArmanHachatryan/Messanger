@@ -32,7 +32,7 @@ namespace Backend
             //AddingPostgreSqlDatabase
             services.AddDbContext<IPostgreDbContext, PostgreDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ISendLetterService, SendLetterService>();
-            services.AddTransient<IRandomService, RandomService>();
+            services.AddScoped<IRandomService, RandomService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
