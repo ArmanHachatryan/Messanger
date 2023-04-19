@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Messages from '../components/Messagess'
 import Message from '../components/Message';
-import Status from '../components/Status';
+import CreateMessage from '../components/CreateMessage';
 
 
 
@@ -18,7 +18,7 @@ export default function MessageHistory() {
 
         <hr/>
 
-        <Status/>
+        <CreateMessage/>
 
     </>
   )
