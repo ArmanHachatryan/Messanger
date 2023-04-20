@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Messages from '../components/Messagess'
+import Messages from '../components/Messages'
 import Message from '../components/Message';
 import CreateMessage from '../components/CreateMessage';
 

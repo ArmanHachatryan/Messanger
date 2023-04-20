@@ -6,5 +6,5 @@ const fetchMessages = () => axios.get(
     .then(respone => respone.data);
 
 export default function useMessages() {
-    return useQuery("messagess", fetchMessages)
+    return useQuery("messages", fetchMessages)
 }
