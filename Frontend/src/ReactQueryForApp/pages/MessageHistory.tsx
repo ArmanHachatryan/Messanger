@@ -6,7 +6,7 @@ import CreateMessage from '../components/CreateMessage';
 
 
 export default function MessageHistory() {
-  const [selectedMessage, setSelectedMessage]= useState(null);
+  const [selectedMessage, setSelectedMessage]= useState<string | null>();
 
   return (
     <>

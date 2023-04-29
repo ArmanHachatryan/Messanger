@@ -1,8 +1,9 @@
 import React from 'react'
 import useMessage from '../query-hooks/useMessage';
 import moment from "moment"
+import { ISelectedMessage } from '../Models/Interfaces';
 
-export default function Message({selectedMessage}) {
+export default function Message({selectedMessage} : ISelectedMessage) {
     const message = useMessage(selectedMessage);
 
 

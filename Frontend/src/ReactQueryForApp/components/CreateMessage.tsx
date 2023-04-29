@@ -13,14 +13,14 @@ export default function CreateMessage() {
 
     const {text, phoneNumber, sender} = formData
 
-    const OnChange = (e) => {
+    const OnChange = (e : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         setFormData((prevState) => ({
             ...prevState,
             [e.target.id]: e.target.value,
         }));
     }
 
-    const OnSubmit = async (e) => {
+    const OnSubmit = async (e : React.FormEvent<HTMLFormElement>) => {
         mutation.mutate(formData)
         e.preventDefault();
         setFormData(defaultData);
