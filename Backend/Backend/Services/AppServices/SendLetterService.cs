@@ -25,7 +25,7 @@ namespace Backend.Services.AppService
                 PhoneNumber = model.PhoneNumber,
                 DateTime = DateTime.Now,
                 Sender = model.Sender,
-                MesssageStatus = _randomService.GetRandom()
+                MessageStatus = _randomService.GetRandom()
                 
             };
 

@@ -29,15 +29,15 @@ export default function CreateMessage() {
     return ( 
         <>
         <form onSubmit={OnSubmit}>
-            <label htmlFor='name'>Your Name</label>
-            <input type="text" id="sender" required value={sender} onChange={OnChange}/>
+            <label htmlFor='name'>Ваше имя</label>
+            <p><input type="text" id="sender" required value={sender} onChange={OnChange}/></p>
 
-            <label htmlFor='text'>Text</label>
-            <textarea id="text" required value={text}  onChange={OnChange}/>
+            <label htmlFor='text'>Ваш текст сообщения</label>
+            <p><textarea id="text" required value={text}  onChange={OnChange}/></p>
             
 
-            <label htmlFor='phoneNumber'>Number</label>
-            <input type="text" id="phoneNumber" required value={phoneNumber} onChange={OnChange}/>
+            <label htmlFor='phoneNumber'>Номер на который хотите позвонить</label>
+            <p><input type="text" id="phoneNumber" required value={phoneNumber} onChange={OnChange}/></p>
 
             <button type="submit">Send message</button>
         </form>    

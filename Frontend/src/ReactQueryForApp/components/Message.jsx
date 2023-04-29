@@ -19,7 +19,7 @@ export default function Message({selectedMessage}) {
   <p>Отправитель: {message.data.sender} </p>
   <p>Текст сообщения: {message.data.text}</p>
   <p>Отправлено на: {message.data.phoneNumber}</p>
-  <p>Статус код: {message.data.messsageStatus}</p>
+  <p>Статус код: {message.data.messageStatus}</p>
 </article>
     )}
   </>

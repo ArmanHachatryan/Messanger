@@ -14,7 +14,7 @@ namespace Backend.Models.Tables
 
         public DateTime DateTime { get; set; }
 
-        public string MesssageStatus { get; set; }
+        public string MessageStatus { get; set; }
 
     }
 }
