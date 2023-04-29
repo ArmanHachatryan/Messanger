@@ -22,10 +22,11 @@ namespace Backend.Services.AppService
             {
                 Id = Guid.NewGuid(),
                 Text = model.Text,
-                Status = _randomService.GetRandom(),
                 PhoneNumber = model.PhoneNumber,
                 DateTime = DateTime.Now,
                 Sender = model.Sender,
+                MessageStatus = _randomService.GetRandom()
+                
             };
 
             _storage.Data.Add(letter);

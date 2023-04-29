@@ -2,6 +2,6 @@
 {
     public interface IRandomService
     {
-        int GetRandom();
+        string GetRandom();
     }
 }

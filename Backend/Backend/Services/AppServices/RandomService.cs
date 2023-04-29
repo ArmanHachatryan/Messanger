@@ -1,5 +1,7 @@
-﻿using Backend.Services.IAppServices;
+﻿using Backend.Models;
+using Backend.Services.IAppServices;
 using System;
+using System.Linq;
 
 namespace Backend.Services.AppServices
 {
@@ -7,11 +9,18 @@ namespace Backend.Services.AppServices
     {
         private const int first_value = 1;
         private const int second_value = 4;
-        public int GetRandom()
+        private readonly IPostgreDbContext _storage;
+        private readonly Random _rnd;
+
+        public RandomService(IPostgreDbContext storage) { 
+            _storage = storage;
+            _rnd = new Random();
+        }
+        public string GetRandom()
         {
-            Random rnd = new Random();
-            int value = rnd.Next(first_value, second_value);
-            return value;
+            int value = _rnd.Next(first_value, second_value);
+            var currentStatus = _storage.StatusList.FirstOrDefault(x => x.Id == value);
+            return currentStatus.Text;
         }
     }
 }
